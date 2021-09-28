@@ -27,4 +27,5 @@ public class Doctor {
 
     @OneToMany(mappedBy = "doctor",fetch = FetchType.EAGER)
     private List<Appointment> appointments;
+
 }
