@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class DoctorMapper implements Mapper<DoctorDTO, Doctor> {
 
     @Autowired
-    private PatientMapper patientMapper;
+    private AppointmentMapper appointmentMapper;
 
     @Override
     public DoctorDTO entityToDto(Doctor doctor) {
@@ -29,7 +29,7 @@ public class DoctorMapper implements Mapper<DoctorDTO, Doctor> {
                 .AppointmentDoctorList(
                         doctor.getAppointments()
                                 .stream()
-                                .map(AppointmentMapper::entityToDto)
+                                .map(appointmentMapper::entityToDto)
                                 .collect(Collectors.toList())
                 )
         .build();

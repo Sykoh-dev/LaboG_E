@@ -27,7 +27,7 @@ public class Patient {
     @Column
     private String mail;
     @Column
-    private Date bateOfBirth;
+    private Date dateOfBirth;
 
     @OneToMany(mappedBy = "patient",fetch = FetchType.EAGER)
     private List<Appointment> appointments;
