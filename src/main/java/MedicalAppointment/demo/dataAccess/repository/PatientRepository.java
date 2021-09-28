@@ -1,4 +1,8 @@
 package MedicalAppointment.demo.dataAccess.repository;
 
-public interface PatientRepository {
+
+import MedicalAppointment.demo.dataAccess.entity.Patient;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PatientRepository extends JpaRepository<Patient, Long> {
 }
