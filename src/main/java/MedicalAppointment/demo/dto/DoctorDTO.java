@@ -1,9 +1,12 @@
 package MedicalAppointment.demo.dto;
 
+import MedicalAppointment.demo.dataAccess.entity.Doctor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,5 +20,8 @@ public class DoctorDTO {
     private String name;
     private String specialization;
     private String mail;
+    private Doctor doctors;
+
+    private List<AppointmentDTO> AppointmentDoctorList;
 
 }

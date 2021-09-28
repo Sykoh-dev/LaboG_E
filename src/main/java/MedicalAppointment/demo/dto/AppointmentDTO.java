@@ -1,5 +1,7 @@
 package MedicalAppointment.demo.dto;
 
+import MedicalAppointment.demo.dataAccess.entity.Doctor;
+import MedicalAppointment.demo.dataAccess.entity.Patient;
 import lombok.*;
 
 import java.util.Date;
@@ -13,9 +15,9 @@ import java.util.List;
 public class AppointmentDTO {
 
     private Long id;
-    private Date dateAppointement;
+    private Date dateAppointment;
 
-    private List<PatientDTO> patients;
-    private List<DoctorDTO> doctors;
+    private PatientDTO patients;
+    private DoctorDTO doctors;
 
 }
