@@ -20,9 +20,11 @@ public class Appointment {
     @Column
     private Date dateAppointement;
 
-    @OneToMany(mappedBy = "appointement",fetch = FetchType.EAGER)
-    private List<Patient> patients;
+    @ManyToOne
+    @JoinColumn(name = "doctor")
+    private Doctor doctor;
 
-    @OneToMany(mappedBy = "appointement",fetch = FetchType.EAGER)
-    private List<Doctor> doctors;
+    @ManyToOne
+    @JoinColumn(name = "patient")
+    private Patient patient;
 }

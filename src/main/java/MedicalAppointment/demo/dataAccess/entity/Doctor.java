@@ -3,6 +3,7 @@ package MedicalAppointment.demo.dataAccess.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,7 +25,6 @@ public class Doctor {
     @Column
     private String specialization;
 
-    @ManyToOne
-    @JoinColumn(name = "appointment")
-    private Appointment appointment;
+    @OneToMany(mappedBy = "doctor",fetch = FetchType.EAGER)
+    private List<Appointment> appointments;
 }

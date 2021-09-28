@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -28,7 +29,6 @@ public class Patient {
     @Column
     private Date bateOfBirth;
 
-    @ManyToOne
-    @JoinColumn(name = "appointment")
-    private Appointment appointment;
+    @OneToMany(mappedBy = "patient",fetch = FetchType.EAGER)
+    private List<Appointment> appointments;
 }
