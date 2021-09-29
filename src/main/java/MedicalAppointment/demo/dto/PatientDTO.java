@@ -20,7 +20,7 @@ public class PatientDTO {
     private String surname;
     private String adress;
     private String mail;
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     private List<AppointmentDTO> AppointmentPatientList;
 
