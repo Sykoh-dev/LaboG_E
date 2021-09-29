@@ -4,6 +4,7 @@ import MedicalAppointment.demo.dto.DoctorDTO;
 import MedicalAppointment.demo.exception.ElementAlreadyPresentException;
 import MedicalAppointment.demo.exception.ElementNotFoundException;
 import MedicalAppointment.demo.metier.service.DoctorService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
@@ -14,7 +15,7 @@ public class MenuDoctor {
     private final DoctorService service;
     private final Scanner sc;
 
-    public MenuDoctor(DoctorService service, Scanner sc) {
+    public MenuDoctor(DoctorService service, @Qualifier("sc2") Scanner sc) {
         this.service = service;
         this.sc = sc;
     }
@@ -102,15 +103,32 @@ public class MenuDoctor {
             System.out.println(e.getMessage());
         }
     }
+
     private void update(){
 
-        // TODO : préciser
-        System.out.println("à implémenter");
+        DoctorDTO.DoctorDTOBuilder builder = DoctorDTO.builder();
+
+        System.out.println("ID : ");
+        builder.id(Long.parseLong(sc.nextLine()));
+        System.out.println("Nom : ");
+        builder.name(sc.nextLine());
+        System.out.println("Prénom : ");
+        builder.surname(sc.nextLine());
+        System.out.println("E-Mail : ");
+        builder.mail(sc.nextLine());
+        System.out.println("Spécialisation : ");
+        builder.specialization(sc.nextLine());
+
+        try {
+            service.update( builder.build() );
+            System.out.println("Succès");
+        } catch (ElementNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
+
     private void quit(){
-
         System.out.println("Au revoir!");
-
     }
 }

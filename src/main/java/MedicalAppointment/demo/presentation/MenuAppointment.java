@@ -1,11 +1,16 @@
 package MedicalAppointment.demo.presentation;
 
+import MedicalAppointment.demo.dataAccess.entity.Doctor;
+import MedicalAppointment.demo.dataAccess.entity.Patient;
 import MedicalAppointment.demo.dto.AppointmentDTO;
 import MedicalAppointment.demo.exception.ElementAlreadyPresentException;
 import MedicalAppointment.demo.exception.ElementNotFoundException;
 import MedicalAppointment.demo.metier.service.AppointmentService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+import java.util.Date;
 import java.util.Scanner;
 
 @Component
@@ -13,7 +18,7 @@ public class MenuAppointment {
     private final AppointmentService service;
     private final Scanner sc;
 
-    public MenuAppointment(AppointmentService service, Scanner sc) {
+    public MenuAppointment(AppointmentService service, @Qualifier("sc2") Scanner sc) {
         this.service = service;
         this.sc = sc;
     }
@@ -65,7 +70,6 @@ public class MenuAppointment {
         } catch (ElementNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     private void insert(){

@@ -13,8 +13,8 @@ public class MedicalAppointementApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(MedicalAppointementApplication.class, args);
 
-//		MenuPatient menuPatient = ctx.getBean(MenuPatient.class);
-//		menuPatient.start();
+		MenuPatient menuPatient = ctx.getBean(MenuPatient.class);
+		menuPatient.start();
 
 		MenuDoctor menuDoctor = ctx.getBean(MenuDoctor.class);
 		menuDoctor.start();

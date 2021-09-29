@@ -8,10 +8,12 @@ import MedicalAppointment.demo.exception.ElementNotFoundException;
 import MedicalAppointment.demo.metier.mapper.Mapper;
 import MedicalAppointment.demo.metier.mapper.PatientMapper;
 import MedicalAppointment.demo.metier.service.PatientService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class PatientServiceImpl implements PatientService {
 
     private final PatientMapper mapper;
