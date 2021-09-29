@@ -110,10 +110,30 @@ public class MenuPatient {
             System.out.println(e.getMessage());
         }
     }
+
     private void update(){
 
-        // TODO : préciser
-        System.out.println("à implémenter");
+        PatientDTO.PatientDTOBuilder builder = PatientDTO.builder();
+
+        System.out.println("ID : ");
+        builder.id(Long.parseLong(sc.nextLine()));
+        System.out.println("Nom : ");
+        builder.name(sc.nextLine());
+        System.out.println("Prénom : ");
+        builder.surname(sc.nextLine());
+        System.out.println("Adresse : ");
+        builder.adress(sc.nextLine());
+        System.out.println("E-Mail : ");
+        builder.mail(sc.nextLine());
+        System.out.println("Date de naissance : ");
+        builder.dateOfBirth(sc.nextLine());
+
+        try {
+            service.update( builder.build() );
+            System.out.println("Succès update");
+        } catch (ElementNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void quit(){

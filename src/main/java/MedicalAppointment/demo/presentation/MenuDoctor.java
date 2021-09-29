@@ -106,8 +106,25 @@ public class MenuDoctor {
 
     private void update(){
 
-        // TODO : préciser
-        System.out.println("à implémenter");
+        DoctorDTO.DoctorDTOBuilder builder = DoctorDTO.builder();
+
+        System.out.println("ID : ");
+        builder.id(Long.parseLong(sc.nextLine()));
+        System.out.println("Nom : ");
+        builder.name(sc.nextLine());
+        System.out.println("Prénom : ");
+        builder.surname(sc.nextLine());
+        System.out.println("E-Mail : ");
+        builder.mail(sc.nextLine());
+        System.out.println("Spécialisation : ");
+        builder.specialization(sc.nextLine());
+
+        try {
+            service.update( builder.build() );
+            System.out.println("Succès");
+        } catch (ElementNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
