@@ -29,12 +29,12 @@ public class MenuDoctor {
     private void displayMenu(){
         System.out.println("""
                 --- MENU DOCTEUR ---
-                1 - afficher un
-                2 - afficher tout
-                3 - ajouter
-                4 - supprimer
-                5 - modifier
-                6 - quitter
+                1 - Afficher un docteur
+                2 - Afficher la liste des docteurs
+                3 - Ajouter
+                4 - Supprimer
+                5 - Modifier
+                6 - Quitter
                 """);
     }
 
@@ -56,7 +56,7 @@ public class MenuDoctor {
     }
     private void displayOne(){
 
-        System.out.println("id de du docteur: ");
+        System.out.println("ID du docteur: ");
         long id = Long.parseLong(sc.nextLine());
 
         try {
@@ -70,20 +70,20 @@ public class MenuDoctor {
 
         DoctorDTO.DoctorDTOBuilder builder = DoctorDTO.builder();
 
-        System.out.println("id: ");
+        System.out.println("ID : ");
         builder.id(Long.parseLong(sc.nextLine()));
-        System.out.println("nom: ");
+        System.out.println("Nom : ");
         builder.name(sc.nextLine());
-        System.out.println("prénom: ");
+        System.out.println("Prénom : ");
         builder.surname(sc.nextLine());
-        System.out.println("mail: ");
+        System.out.println("E-Mail : ");
         builder.mail(sc.nextLine());
-        System.out.println("specialisation: ");
+        System.out.println("Spécialisation : ");
         builder.specialization(sc.nextLine());
 
         try {
             service.insert( builder.build() );
-            System.out.println("succes");
+            System.out.println("Succès");
         } catch (ElementAlreadyPresentException e) {
             System.out.println(e.getMessage());
         }
@@ -91,7 +91,7 @@ public class MenuDoctor {
     }
     private void delete(){
 
-        System.out.println("id du docteur ");
+        System.out.println("ID du docteur ");
         long id = Long.parseLong(sc.nextLine());
 
         try {
@@ -108,7 +108,7 @@ public class MenuDoctor {
     }
     private void quit(){
 
-        System.out.println("au revoir!");
+        System.out.println("Au revoir!");
 
     }
 }
