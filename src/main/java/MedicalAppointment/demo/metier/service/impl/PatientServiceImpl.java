@@ -10,6 +10,7 @@ import MedicalAppointment.demo.metier.mapper.PatientMapper;
 import MedicalAppointment.demo.metier.service.PatientService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PatientServiceImpl implements PatientService {
 
@@ -22,28 +23,41 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public PatientDTO getOne(Long aLong) throws ElementNotFoundException {
-        return null;
+    public PatientDTO getOne(Long id) throws ElementNotFoundException {
+        return repository.findById(id)
+                .map(mapper::entityToDto)
+                .orElseThrow(ElementNotFoundException::new);
     }
 
     @Override
     public List<PatientDTO> getAll() {
-        return null;
+        return repository.findAll().stream()
+                .map(mapper::entityToDto)
+                .collect(Collectors.toList());
     }
 
     @Override
     public void insert(PatientDTO toInsert) throws ElementAlreadyPresentException {
+        if( repository.existsById(toInsert.getId()) )
+            throw new ElementAlreadyPresentException();
 
+        repository.save( mapper.dtoToEntity(toInsert) );
     }
 
     @Override
-    public void delete(Long aLong) throws ElementNotFoundException {
+    public void delete(Long id) throws ElementNotFoundException {
+        if( !repository.existsById(id) )
+            throw new ElementNotFoundException();
 
+        repository.deleteById(id);
     }
 
     @Override
     public void update(PatientDTO toUpdate) throws ElementNotFoundException {
+        if( !repository.existsById(toUpdate.getId()) )
+            throw new ElementNotFoundException();
 
+        repository.save( mapper.dtoToEntity(toUpdate) );
     }
 }
 
