@@ -4,9 +4,11 @@ import MedicalAppointment.demo.dto.AppointmentDTO;
 import MedicalAppointment.demo.exception.ElementAlreadyPresentException;
 import MedicalAppointment.demo.exception.ElementNotFoundException;
 import MedicalAppointment.demo.metier.service.AppointmentService;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Component
 public class MenuAppointment {
     private final AppointmentService service;
     private final Scanner sc;
