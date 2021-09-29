@@ -4,6 +4,7 @@ import MedicalAppointment.demo.dto.DoctorDTO;
 import MedicalAppointment.demo.exception.ElementAlreadyPresentException;
 import MedicalAppointment.demo.exception.ElementNotFoundException;
 import MedicalAppointment.demo.metier.service.DoctorService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
@@ -14,7 +15,7 @@ public class MenuDoctor {
     private final DoctorService service;
     private final Scanner sc;
 
-    public MenuDoctor(DoctorService service, Scanner sc) {
+    public MenuDoctor(DoctorService service, @Qualifier("sc2") Scanner sc) {
         this.service = service;
         this.sc = sc;
     }
@@ -102,15 +103,15 @@ public class MenuDoctor {
             System.out.println(e.getMessage());
         }
     }
+
     private void update(){
 
         // TODO : préciser
         System.out.println("à implémenter");
 
     }
+
     private void quit(){
-
         System.out.println("Au revoir!");
-
     }
 }

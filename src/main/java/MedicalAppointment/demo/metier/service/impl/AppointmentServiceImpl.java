@@ -6,10 +6,12 @@ import MedicalAppointment.demo.exception.ElementAlreadyPresentException;
 import MedicalAppointment.demo.exception.ElementNotFoundException;
 import MedicalAppointment.demo.metier.mapper.AppointmentMapper;
 import MedicalAppointment.demo.metier.service.AppointmentService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class AppointmentServiceImpl implements AppointmentService {
 
     private final AppointmentMapper mapper;

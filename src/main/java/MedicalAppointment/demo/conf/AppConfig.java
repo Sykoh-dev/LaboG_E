@@ -9,6 +9,9 @@ import java.util.Scanner;
 @Configuration
 public class AppConfig {
 
-    @Bean
+    @Bean(name = "sc")
     public Scanner scanner (){ return new Scanner(System.in); }
+
+    @Bean(name = "sc2")
+    public Scanner scanner2 (){ return new Scanner(System.in); }
 }

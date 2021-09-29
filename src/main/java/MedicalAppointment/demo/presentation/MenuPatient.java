@@ -114,8 +114,8 @@ public class MenuPatient {
 
         // TODO : préciser
         System.out.println("à implémenter");
-
     }
+
     private void quit(){
 
         System.out.println("Au revoir!");
