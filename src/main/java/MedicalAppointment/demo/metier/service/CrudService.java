@@ -6,7 +6,7 @@ import MedicalAppointment.demo.exception.ElementNotFoundException;
 import java.util.List;
 
 public interface CrudService<DTO, ID> {
-    DTO getOne(ID id) throws ElementNotFoundException;
+    DTO getOne(ID Long) throws ElementNotFoundException;
 
     List<DTO> getAll();
 
