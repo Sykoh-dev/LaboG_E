@@ -5,11 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="${springMacroRequestContext.contextPath}/css/styles.css">
+
+    <title>Homepage</title>
 </head>
 <body>
-    <a href="/home/edit/1">Link</a>
-    <h1>Hello ${nom}!</h1>
+    <a href="/">Retour</a>
+
+    <h1>Overview</h1>
+    <h2>Hello ${nom}!</h2>
     <table>
         <#list users as user>
             <tr>

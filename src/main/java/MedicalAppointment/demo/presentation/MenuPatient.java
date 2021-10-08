@@ -97,8 +97,8 @@ public class MenuPatient {
         } catch (ElementAlreadyPresentException e) {
             System.out.println(e.getMessage());
         }
-
     }
+
     private void delete(){
 
         System.out.println("ID du patient ");

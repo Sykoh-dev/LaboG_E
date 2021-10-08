@@ -1,0 +1,28 @@
+html {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: #fff8f0;
+}
+
+body {
+    background-color: #f7e6d2 !important;
+    padding: 4%;
+}
+
+h1, h2 {
+    color:#ff4f57;
+    padding-bottom: 5px;
+}
+
+a {
+    color: #ff4f57;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 5px;
+}
