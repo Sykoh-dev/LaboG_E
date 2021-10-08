@@ -22,5 +22,4 @@ public class MedicalAppointementApplication {
 //		MenuAppointment menuAppointment = ctx.getBean(MenuAppointment.class);
 //		menuAppointment.start();
 	}
-
 }
