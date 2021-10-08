@@ -25,9 +25,6 @@
         </#list>
     </table>
 
-    <#if sUser??>
-    <div>${sUser.username}</div>
-    </#if>
 
 </body>
 </html>

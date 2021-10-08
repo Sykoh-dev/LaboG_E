@@ -37,11 +37,8 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public void insert(DoctorDTO toInsert) throws ElementAlreadyPresentException {
-        if( repository.existsById(toInsert.getId()) )
-            throw new ElementAlreadyPresentException();
+    public void insert(Object toInsert) throws ElementAlreadyPresentException {
 
-        repository.save( mapper.dtoToEntity(toInsert) );
     }
 
     @Override
@@ -53,10 +50,7 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public void update(DoctorDTO toUpdate) throws ElementNotFoundException {
-        if( !repository.existsById(toUpdate.getId()) )
-            throw new ElementNotFoundException();
+    public void update(Object toUpdate) throws ElementNotFoundException {
 
-        repository.save( mapper.dtoToEntity(toUpdate) );
-    }
 }
+    }

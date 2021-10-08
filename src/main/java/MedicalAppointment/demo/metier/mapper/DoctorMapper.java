@@ -4,13 +4,14 @@ import MedicalAppointment.demo.dataAccess.entity.Doctor;
 import MedicalAppointment.demo.dataAccess.entity.Patient;
 import MedicalAppointment.demo.dto.DoctorDTO;
 import MedicalAppointment.demo.dto.PatientDTO;
+import MedicalAppointment.demo.modelsform.DoctorCreateForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
 @Component
-public class DoctorMapper implements Mapper<DoctorDTO, Doctor> {
+public class DoctorMapper implements Mapper<DoctorDTO, DoctorCreateForm, Doctor> {
 
     @Autowired
     private AppointmentMapper appointmentMapper;
@@ -48,5 +49,10 @@ public class DoctorMapper implements Mapper<DoctorDTO, Doctor> {
                 .specialization(doctorDTO.getSpecialization())
                 .build();
 
+    }
+
+    @Override
+    public Doctor formToEntity(DoctorCreateForm doctorCreateForm) {
+        return null;
     }
 }

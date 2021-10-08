@@ -3,11 +3,12 @@ package MedicalAppointment.demo.metier.mapper;
 
 import MedicalAppointment.demo.dataAccess.entity.Patient;
 import MedicalAppointment.demo.dto.PatientDTO;
+import MedicalAppointment.demo.modelsform.PatientCreateForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PatientMapper implements Mapper<PatientDTO, Patient> {
+public class PatientMapper implements Mapper<PatientDTO, PatientCreateForm, Patient> {
 
     @Autowired
     private AppointmentMapper appointmentMapper;
@@ -40,5 +41,11 @@ public class PatientMapper implements Mapper<PatientDTO, Patient> {
                 .mail(patientDTO.getMail())
                 .dateOfBirth(patientDTO.getDateOfBirth())
                 .build();
+    }
+
+    // TODO redifinir methode
+    @Override
+    public Patient formToEntity(PatientCreateForm patientCreateForm) {
+        return null;
     }
 }

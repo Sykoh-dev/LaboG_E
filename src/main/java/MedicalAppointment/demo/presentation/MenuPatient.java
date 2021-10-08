@@ -91,12 +91,12 @@ public class MenuPatient {
         System.out.println("Date de naissance : ");
         builder.dateOfBirth(sc.nextLine());
 
-        try {
-            service.insert( builder.build() );
+/*        try {
+*//*            service.insert( builder.build() );*//*
             System.out.println("Succès");
         } catch (ElementAlreadyPresentException e) {
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 
     private void delete(){
@@ -128,12 +128,12 @@ public class MenuPatient {
         System.out.println("Date de naissance : ");
         builder.dateOfBirth(sc.nextLine());
 
-        try {
+/*        try {
             service.update( builder.build() );
             System.out.println("Succès update");
         } catch (ElementNotFoundException e) {
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 
     private void quit(){

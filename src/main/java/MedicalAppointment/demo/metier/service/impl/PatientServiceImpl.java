@@ -8,6 +8,8 @@ import MedicalAppointment.demo.exception.ElementNotFoundException;
 import MedicalAppointment.demo.metier.mapper.Mapper;
 import MedicalAppointment.demo.metier.mapper.PatientMapper;
 import MedicalAppointment.demo.metier.service.PatientService;
+import MedicalAppointment.demo.modelsform.PatientCreateForm;
+import org.hibernate.cfg.NotYetImplementedException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,11 +41,10 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public void insert(PatientDTO toInsert) throws ElementAlreadyPresentException {
-        if( repository.existsById(toInsert.getId()) )
-            throw new ElementAlreadyPresentException();
+    public void insert(PatientCreateForm toInsert) throws ElementAlreadyPresentException {
 
-        repository.save( mapper.dtoToEntity(toInsert) );
+
+        repository.save( toInsert.mapToPatient() );
     }
 
     @Override
@@ -55,11 +56,12 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public void update(PatientDTO toUpdate) throws ElementNotFoundException {
-        if( !repository.existsById(toUpdate.getId()) )
+    public void update(PatientCreateForm toUpdate) throws ElementNotFoundException  {
+/*        if( !repository.existsById(toUpdate.getId()) )
             throw new ElementNotFoundException();
 
-        repository.save( mapper.dtoToEntity(toUpdate) );
+        repository.save( mapper.formToEntity(toUpdate) );*/
+        throw new NotYetImplementedException();
     }
 }
 

@@ -7,18 +7,19 @@ import MedicalAppointment.demo.dataAccess.entity.Patient;
 import MedicalAppointment.demo.dto.AppointmentDTO;
 import MedicalAppointment.demo.dto.DoctorDTO;
 import MedicalAppointment.demo.dto.PatientDTO;
+import MedicalAppointment.demo.modelsform.AppointmentForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class AppointmentMapper implements Mapper<AppointmentDTO, Appointment> {
+public class AppointmentMapper implements Mapper<AppointmentDTO, AppointmentForm, Appointment> {
 
     @Autowired
-    private Mapper<DoctorDTO, Doctor> doctorMapper;
+    private DoctorMapper doctorMapper;
     @Autowired
-    private Mapper<PatientDTO, Patient> patientMapper;
+    private PatientMapper patientMapper;
 
     @Override
     public AppointmentDTO entityToDto(Appointment appointment) {
@@ -41,5 +42,10 @@ public class AppointmentMapper implements Mapper<AppointmentDTO, Appointment> {
                 .id(appointmentDTO.getId())
                 .dateAppointment(appointmentDTO.getDateAppointment())
                 .build();
+    }
+
+    @Override
+    public Appointment formToEntity(AppointmentForm appointmentForm) {
+        return null;
     }
 }
